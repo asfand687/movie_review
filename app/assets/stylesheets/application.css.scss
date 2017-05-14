@@ -1,0 +1,97 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	background: #AA4847;
+}
+
+.review_title {
+	margin: 0 0 20px 0;
+}
+.reviews {
+	padding: 15px 0;
+	border-bottom: 1px solid #EAEAEA;
+	position:relative;	
+	.star-rating {
+		padding-bottom: 8px;
+	}
+}
+
+.thumbnail {
+	position: relative;
+}
+
+.img-link {
+	background: #444;
+}
+
+.img-span {
+	display: none;
+	position: absolute;
+	bottom: 1%;
+	background-color:rgba(0,0,0,0.6);
+	width:97%;
+	border-radius: 3px;
+	text-decoration: none;
+	color: #fff;
+	box-sizing: border-box;
+	padding: 1px 0px;
+	font-size: 120%;
+	font-family: "Times New Roman";
+	font-weight: bold;
+	overflow: hidden;
+	transition: .5s ease;
+}
+
+.img-link span{
+	font-family: "Open Sans";
+}
+
+.img-link:hover span.img-span{
+	display:block;
+}
+
+.show-image {
+	border-radius: 3px;
+}
+
+.edit-review {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	display:none;
+	margin-top: 15px;
+}
+
+.delete-review {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	margin: 15px 65px 0px 0px;
+	display:none;
+}
+
+.reviews:hover span.edit-review{
+	display:block;
+}
+
+.reviews:hover span.delete-review{
+	display:block;
+}
+

@@ -1,0 +1,51 @@
+<%= simple_form_for([@movie, @review]) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if @review.new_record? %>
+    <div class="field">
+      <div id="star-rating"></div>
+    </div>
+  <% end %>
+  <% if @review.persisted? %>
+    <div class="field">
+      <div id='star-rating' data-score= <%= @review.rating %> ></div>
+    </div>
+  <% end %>  
+
+  <%= f.input :comment %>
+  <%= f.button :submit %>
+
+<% end %>
+
+<% if @review.new_record? %>
+  <script>
+    $('#star-rating').raty({
+      path: '/assets/',
+      scoreName: 'review[rating]'
+    });
+  </script>
+<% end %>
+
+<% if @review.persisted? %>
+  <script>
+    $('#star-rating').raty({
+      path: '/assets/',
+      score: function() {
+            return $(this).attr("data-score");
+    }
+    });
+   
+  </script>
+<% end %>
+
+
+
